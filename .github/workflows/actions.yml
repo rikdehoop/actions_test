@@ -1,0 +1,36 @@
+name: Run Python Script with Conda Environment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Miniconda
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.9  # Specify Python version
+        auto-activate-base: false  # Avoid activating the base Conda environment
+
+    # Step 3: Create and activate Conda environment
+    - name: Create and activate Conda environment
+      run: |
+        conda create --name myenv python=3.9 -y  # Create environment with desired Python version
+        conda activate myenv
+        conda install -c conda-forge geopandas requests -y  # Example dependencies
+
+    # Step 4: Run Python script
+    - name: Run Python script
+      run: |
+        conda activate myenv
+        python main.py
+
