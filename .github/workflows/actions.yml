@@ -21,17 +21,22 @@ jobs:
         python-version: 3.9  # Specify Python version
         auto-activate-base: false  # Avoid activating the base Conda environment
 
-    # Step 3: Create and activate Conda environment
-    - name: Create and activate Conda environment
+    # Step 3: Initialize Conda and Create Environment
+    - name: Initialize Conda and Create Environment
       run: |
-        conda create --name myenv python=3.9 -y  # Create environment with desired Python version
-        conda init
+        # Initialize Conda for the current shell session
+        conda init bash
+        # Reload shell configuration to apply Conda initialization
+        source ~/.bashrc
+        # Create Conda environment
+        conda create --name myenv python=3.9 -y
+        # Activate environment and install dependencies
         conda activate myenv
-        conda install -c conda-forge geopandas requests -y  # Example dependencies
+        conda install -c conda-forge geopandas requests -y
 
     # Step 4: Run Python script
     - name: Run Python script
       run: |
+        # Activate the Conda environment and run the script
         conda activate myenv
         python main.py
-
