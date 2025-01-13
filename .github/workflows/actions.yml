@@ -33,6 +33,8 @@ jobs:
         # Activate environment and install dependencies
         conda activate myenv
         conda install -c conda-forge geopandas requests -y
+        # Persist environment activation for subsequent steps
+        echo "conda activate myenv" >> $GITHUB_ENV
 
     # Step 4: Run Python script
     - name: Run Python script
