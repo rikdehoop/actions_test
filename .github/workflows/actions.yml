@@ -25,6 +25,7 @@ jobs:
     - name: Create and activate Conda environment
       run: |
         conda create --name myenv python=3.9 -y  # Create environment with desired Python version
+        conda init
         conda activate myenv
         conda install -c conda-forge geopandas requests -y  # Example dependencies
 
