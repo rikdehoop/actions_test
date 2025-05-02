@@ -31,7 +31,7 @@ jobs:
         conda create --name myenv python=3.9 -y
         # Activate environment and install dependencies
         conda activate myenv
-        conda install -c conda-forge geopandas requests -y
+        conda install -c conda-forge geopandas requests shapely -y
 
     # Step 4: Run Python script
     - name: Run Python script
