@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 gdf_grid = gpd.read_file("vrbn_grid_5km_buffer.gpkg")
 
 # WFS base URL
-base_url = "	https://service.pdok.nl/rce/ps-ch/wfs/v1_0"
+base_url = "https://service.pdok.nl/rce/ps-ch/wfs/v1_0"
 
 def get_bag(typename: str):
     all_combined_gdf = gpd.GeoDataFrame()
