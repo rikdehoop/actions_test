@@ -1,3 +1,3 @@
 import geopandas as gpd
-import shapely as shy
+from shapely.geometry import shape
 print('hello world!')
