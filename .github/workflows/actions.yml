@@ -3,7 +3,7 @@ name: Run Python Script with Conda Environment
 on:
   schedule:
     - cron: '0 5 * * 1'
-
+  workflow_dispatch:     # <-- Add this line for manual trigger
 jobs:
   build:
     runs-on: ubuntu-22.04
