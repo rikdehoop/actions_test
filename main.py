@@ -61,11 +61,11 @@ def get_bag(typename: str):
 
         all_combined_gdf = all_combined_gdf._append(combined_gdf, ignore_index=True)
 
-    all_combined_gdf.set_geometry('geometry', inplace=True)
-    all_combined_gdf = all_combined_gdf.drop_duplicates(subset='geometry')
-    all_combined_gdf = all_combined_gdf[all_combined_gdf.is_valid & all_combined_gdf['geometry'].notnull()]
+    # all_combined_gdf.set_geometry('geometry', inplace=True)
+    # all_combined_gdf = all_combined_gdf.drop_duplicates(subset='geometry')
+    # all_combined_gdf = all_combined_gdf[all_combined_gdf.is_valid & all_combined_gdf['geometry'].notnull()]
 
-    all_combined_gdf.set_crs("EPSG:28992", allow_override=True, inplace=True)
+    # all_combined_gdf.set_crs("EPSG:28992", allow_override=True, inplace=True)
     print(all_combined_gdf.head())
     # output_file = f"clipped_{typename}.gpkg"
     # all_combined_gdf.to_file(output_file, driver="GPKG")
